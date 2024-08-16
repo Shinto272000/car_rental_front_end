@@ -15,23 +15,34 @@ import SignUpPage from './Pages/User/UserSignupPage.jsx';
 import SigninPage from './Pages/User/UserSigninPage.jsx';
 import DlsSignupPage from './Pages/Dealer/DealerSignupPage.jsx';
 import DlsSigninPage from './Pages/Dealer/DealerSigninPage.jsx';
-
+import UserLayout from './Layout/UserLayout.jsx';
+import { ChakraProvider } from '@chakra-ui/react';
+// import DealersList from './components/Dealer/DealersList.jsx';
+import DealerRoutess from './Protected/DealerRoutess.jsx';
+import Table1 from './components/User/Table.jsx';
+import Cars from './components/User/Cars.jsx';
+import { CarList } from './components/Dealer/CarList.jsx';
+import CarAdd from './components/Dealer/CarAdd.jsx';
+import AdminLayout from './Layout/AdminLayout.jsx';
 
 
 const router = createBrowserRouter([
 
   {
-    element: <HomeLayout/>,
+    element: (
+    <DealerRoutess>
+    <HomeLayout/>
+    </DealerRoutess>),
     children: [
       {
         path: "/",
         element: <App />,
       },
 
-      // {
-      //   path :"/table",
-      //   element : <Table1/>
-      // },
+      {
+        path :"/table",
+        element : <Table1/>
+      },
 
       {
         path: "/user/signup",
@@ -49,6 +60,28 @@ const router = createBrowserRouter([
         path: "/dealer/signin",
         element: <DlsSigninPage />
       }]
+  },
+  {
+    element:<UserLayout/>,
+    children : [{
+      path: "/user/home",
+        element: <App/>,
+    },
+    {
+      path: "/user/cars",
+        element: <Cars/>,
+    }]
+  },
+  {
+    element:<AdminLayout/>,
+    children : [{
+      path: "/admin/add-cars",
+        element: <CarAdd/>,
+    },
+    {
+      path: "/admin/carlist",
+        element: <CarList/>,
+    }]
   }
 
 ]);
@@ -56,8 +89,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  {/* <ChakraProvider> */}
+  <ChakraProvider>
     <RouterProvider router={router} />
-    {/* </ChakraProvider> */}
+    </ChakraProvider>
   </React.StrictMode>
 )

@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const userSchema = yup
   .object({
@@ -20,6 +22,8 @@ export default function Signup() {
     formState: { errors },
   } = useForm({resolver : yupResolver(userSchema)});
 
+  const navigate = useNavigate()
+
   const onSubmit =async (data) => {
     try {
       const res = await axios.post(
@@ -29,6 +33,7 @@ export default function Signup() {
           withCredentials: true,
         },
       );
+      navigate("/user/home")
       console.log(res.data);
      
     } catch (error) {

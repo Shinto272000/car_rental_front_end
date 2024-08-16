@@ -8,7 +8,7 @@ const DealersList = () => {
   useEffect(() => {
     const getDealers = async () => {
       const res = await axios.get(
-        "http://localhost:3004/api/v1/dealer/get-dealers",
+        "http://localhost:3000/api/v1/dealer/get-dealers",
       );
       const dlsData = await res.data;
       setDealers(dlsData);
@@ -38,7 +38,7 @@ const DealersList = () => {
                       <button
                         onClick={async () => {
                           const res = await axios.delete(
-                            `http://localhost:3000/api/v1/dealer/d/${dealer._id}`,
+                            `http://localhost:3000/api/v1/dealer/${dealer._id}`,
                           );
                           const data = await res.data;
                           console.log(data);
