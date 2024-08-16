@@ -13,6 +13,7 @@ import {
     SimpleGrid
 } from '@chakra-ui/react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react'
 
@@ -35,6 +36,10 @@ export const CarList = () => {
         };
         getAllCarss();
     }, []);
+    const navigate = useNavigate()
+    const handleEdit = (carId) => {
+        navigate(`/admin/cars/${carId}`); // Navigate to edit page with car ID
+    };
 
 
     return (
@@ -63,26 +68,14 @@ export const CarList = () => {
                                 <Divider />
                                 <CardFooter>
                                     <ButtonGroup spacing='2'>
-                                        <button
-                                        // onClick={async () => {
-                                        //   const res = await axios.put(
-                                        //     `http://localhost:3000/api/v1/dealer/cars/${car._id}`,
-                                        //   );
-                                        //   const data = await res.data;
-                                        //   console.log(data);
-                                        //   if (data === "removed sucessfully") {
-                                        //     window.location.reload();
-                                        //   }
-                                        // }}
-                                        // className="rounded-md bg-red-500 px-2 py-1 text-white"
-                                        >
+                                        <button onClick={() => handleEdit(car._id)}>
                                             Edit
                                         </button>
 
                                         <button
                                             onClick={async () => {
                                                 const res = await axios.delete(
-                                                    `http://localhost:3000/api/v1/dealer/cars/${car._id}`,
+                                                    `http://localhost:3000/api/v1/dealer/cars/${car._id}`, 
                                                 );
                                                 const data = await res.data;
                                                 console.log(data);

@@ -24,6 +24,8 @@ import Cars from './components/User/Cars.jsx';
 import { CarList } from './components/Dealer/CarList.jsx';
 import CarAdd from './components/Dealer/CarAdd.jsx';
 import AdminLayout from './Layout/AdminLayout.jsx';
+import CarEdit from './components/Dealer/CarEdit.jsx';
+import UserHome from './UserHome.jsx';
 
 
 const router = createBrowserRouter([
@@ -65,7 +67,7 @@ const router = createBrowserRouter([
     element:<UserLayout/>,
     children : [{
       path: "/user/home",
-        element: <App/>,
+        element: <UserHome/>
     },
     {
       path: "/user/cars",
@@ -81,7 +83,12 @@ const router = createBrowserRouter([
     {
       path: "/admin/carlist",
         element: <CarList/>,
-    }]
+    },
+
+    {
+      path: "/admin/cars/:id",
+        element: <CarEdit/>,
+    },]
   }
 
 ]);

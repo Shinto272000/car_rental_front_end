@@ -11,10 +11,6 @@ const UserNavbar = () => {
         value:"Cars"
     },
     {
-        path:"/user/userprofile",
-        value:"Profile"
-    },
-    {
         path:"/user/signup",
         value:"signout"
     }]

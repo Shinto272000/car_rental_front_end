@@ -2,10 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const AdminNavbar = () => {
-    const navLinks = [{
-        path:"/admin/home",
-        value:"Home"
-    },
+    const navLinks = [
     {
         path:"/admin/add-cars",
         value:"Add"

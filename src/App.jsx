@@ -28,9 +28,9 @@ function App() {
       <div className="relative z-10 flex flex-col justify-center items-center h-full text-center text-white">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Car Rentals</h1>
         <p className="text-lg md:text-2xl mb-8">Find the perfect car for your next adventure.</p>
-        <a href="/browse" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg text-lg">
+        {/* <a href="/browse" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg text-lg">
           Browse Cars
-        </a>
+        </a> */}
       </div>
       {/* <main className="mt-8"> */}
         
