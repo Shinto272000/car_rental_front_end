@@ -6,14 +6,32 @@ const UserNavbar = () => {
         path:"/user/home",
         value:"Home"
     },
+    // {
+    //     path:"/user/cars",
+    //     value:"BookNow"
+    // },
+    
     {
-        path:"/user/cars",
-        value:"Cars"
+        path:"/user/available-cars",
+        value:"CarList"
+    },
+    
+    {
+        path:"/order-details",
+        value:"Order-details"
+    },
+    {
+        path:"/order-review",
+        value:"Review"
     },
     {
         path:"/user/signup",
         value:"signout"
-    }]
+    },
+    
+
+    
+]
   return (
     <div>
         <ul className='flex justify-between shadow-lg p-5'>

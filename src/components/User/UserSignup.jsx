@@ -33,7 +33,8 @@ export default function Signup() {
           withCredentials: true,
         },
       );
-      navigate("/user/home")
+      navigate("/user/signin")
+      alert("please signin")
       console.log(res.data);
      
     } catch (error) {

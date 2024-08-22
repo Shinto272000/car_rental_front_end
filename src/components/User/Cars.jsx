@@ -21,7 +21,11 @@ function Cars() {
   }, []);
 
   const paymentHandler = async (event, carId) => {
-    const selectedCar = cars.find((car) => car.id === carId);
+    //  console.log("Selected car ID:", carId);
+    const selectedCar = cars.find((car) => car._id === carId);
+    // console.log("Selected Car:", selectedCar); // Debugging: Log the selected car data
+    // console.log("Price per Day:", selectedCar.priceperDay); // Debugging: Log the price per day
+
     const response = await axios.post(
       "http://localhost:3000/api/v1/payment/order",
       { amount: selectedCar.priceperDay },
@@ -91,7 +95,7 @@ function Cars() {
               <p className="font-light text-gray-500">{car.description}</p>
               <h3>{car.priceperDay}</h3>
               <button
-                onClick={() => paymentHandler(car.id)}
+                onClick={(event) => paymentHandler(event,car._id)}
                 className="rounded-lg bg-blue-500 px-2 py-1 text-white"
               >
                 Pay now

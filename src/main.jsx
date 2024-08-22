@@ -26,25 +26,38 @@ import CarAdd from './components/Dealer/CarAdd.jsx';
 import AdminLayout from './Layout/AdminLayout.jsx';
 import CarEdit from './components/Dealer/CarEdit.jsx';
 import UserHome from './UserHome.jsx';
+import { AvailableCar } from './components/User/AvailableCars.jsx';
+import SingleCar from './components/User/SingleCar.jsx';
+import UserRoutes from './Protected/UserRoutess.jsx';
+import AdminRoute from './Protected/AdminRoutes.jsx';
+import DealerLayout from './Layout/DealerLayout.jsx';
+import DealerDashbord from './components/Dealer/DealerDashbord.jsx';
+import OrderSummary from './components/User/OrderSummery.jsx';
+import UserOrders from './components/User/UserOrders.jsx';
+import UserReview from './components/User/UserReview.jsx';
+import FrontendUserReview from './components/User/FrontendUserReview.jsx';
+import AdminDashbord from './components/Dealer/AdminDashbord.jsx';
+import DealersList from './components/Dealer/DealersList.jsx';
 
 
 const router = createBrowserRouter([
 
   {
-    element: (
-    <DealerRoutess>
-    <HomeLayout/>
-    </DealerRoutess>),
+    element:<HomeLayout/>,
     children: [
       {
         path: "/",
         element: <App />,
       },
-
       {
-        path :"/table",
-        element : <Table1/>
+        path: "/review",
+        element: <FrontendUserReview/>,
       },
+
+      // {
+      //   path :"/table",
+      //   element : <Table1/>
+      // },
 
       {
         path: "/user/signup",
@@ -64,7 +77,11 @@ const router = createBrowserRouter([
       }]
   },
   {
-    element:<UserLayout/>,
+    element:
+    (<UserRoutes>
+      <UserLayout/>
+    </UserRoutes>)
+    ,
     children : [{
       path: "/user/home",
         element: <UserHome/>
@@ -72,24 +89,141 @@ const router = createBrowserRouter([
     {
       path: "/user/cars",
         element: <Cars/>,
-    }]
+    },
+    {
+      path: "/user/available-cars",
+        element: <AvailableCar/>,
+    },
+    {
+      path: "/user/singlecar/:carId",
+        element: <SingleCar/>,
+    },
+  {
+    path :"/order-summary",
+    element : <OrderSummary/>
   },
   {
-    element:<AdminLayout/>,
-    children : [{
-      path: "/admin/add-cars",
-        element: <CarAdd/>,
-    },
+    path :"/order-details",
+    element : <UserOrders/>
+  },
+  {
+    path :"/order-review",
+    element : <UserReview/>
+  }
+]
+  },
+  // {
+    
+  //   element:
+  //   (
+  //     <AdminRoute>
+  //     <AdminLayout/>
+  //     </AdminRoute>),
+  //   children : [
+  //     {
+  //     path: "/admin/add-cars",
+  //     element:<CarAdd/>
+  //   },
+  //   {
+  //     path: "/admin/carlist",
+  //       element: <CarList/>,
+  //   },
+
+  //   {
+  //     path: "/admin/cars/:id",
+  //       element: <CarEdit/>,
+  //   },]
+  // },
+  // {
+    
+  //   element:
+  //   (
+  //     <DealerRoutess>
+  //     <DealerLayout/>
+  //     </DealerRoutess>),
+  //   children : [
+  //     {
+  //       path: "/admin/carlist",
+  //         element: <AdminRoute><CarList/></AdminRoute>,
+  //     },
+  
+  //     {
+  //       path: "/admin/cars/:id",
+  //         element: <AdminRoute><CarEdit/></AdminRoute>,
+  //     },
+  //     {
+  //       path: "/admin/add-cars",
+  //       element:<CarAdd/>
+  //     }
+   
+  //   ]
+  // },
+
+
+
+    {
+    
+    element:
+    (
+      <AdminRoute>
+      <AdminLayout/>
+      </AdminRoute>),
+    children : [
+    //   {
+    //   path: "/admin/add-cars",
+    //   element:<CarAdd/>
+    // },
     {
       path: "/admin/carlist",
         element: <CarList/>,
     },
+    {
+      path: "/adminssss/add-cars",
+      element:<CarAdd/>
+    },
+    {
+      path: "/admin/dashbord",
+        element: <AdminDashbord/>,
+    },
+    {
+      path: "/admin/dealersList",
+        element: <DealersList/>,
+    },
 
     {
-      path: "/admin/cars/:id",
+      path: "/admin/cars/edit/:id",
         element: <CarEdit/>,
     },]
-  }
+  },
+
+
+  {
+    
+    element:
+    (
+      <DealerRoutess>
+      <DealerLayout/>
+      </DealerRoutess>),
+    children : [
+      {
+      path: "/dealer/add-cars",
+      element:<CarAdd/>
+    },
+    {
+      path: "/dealer/dashbord",
+      element:<DealerDashbord/>
+    }
+    // {
+    //   path: "/admin/carlist",
+    //     element: <CarList/>,
+    // },
+
+    // {
+    //   path: "/admin/cars/:id",
+    //     element: <CarEdit/>,
+    // },
+  ]
+  },
 
 ]);
 

@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const DealerRoutess = ({children}) => {
+const AdminRoute = ({children}) => {
     const navigate = useNavigate()
     useEffect(() => {
-        const checkUser = async () => {
+        const checkAdminn = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:3000/api/v1/dealer/check-dealer",
+                    "http://localhost:3000/api/v1/dealer/check-admin",
                     {
                         withCredentials: true,
                     },
@@ -26,10 +26,10 @@ const DealerRoutess = ({children}) => {
                 navigate("/dealer/signup", { replace: true });
             }
         };
-        checkUser();
+        checkAdminn();
     }, [navigate]);
 
     return children;
 };
 
-export default DealerRoutess
+export default AdminRoute

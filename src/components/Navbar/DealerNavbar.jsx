@@ -1,30 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const AdminNavbar = () => {
+const DealerNavbar = () => {
     const navLinks = [
-    
     {
-        path:"/admin/dashbord",
-        value:"Dashbord"
+        path:"/dealer/add-cars",
+        value:"Add Car"
     },
-    {
-        path:"/adminssss/add-cars",
-        value:"Add car"
-    },
-    {
-        path:"/admin/carlist",
-        value:"Carlist"
-    },
-    {
-        path:"/admin/dealersList",
-        value:"Dealers List"
-    },
-    
     {
         path:"/dealer/signup",
         value:"signout"
-    }]
+    },
+    {
+        path:"/dealer/dashbord",
+        value:"dashbord"
+    }
+]
   return (
     <div>
         <ul className='flex justify-between shadow-lg p-5'>
@@ -39,4 +30,4 @@ const AdminNavbar = () => {
   )
 }
 
-export default AdminNavbar
+export default DealerNavbar

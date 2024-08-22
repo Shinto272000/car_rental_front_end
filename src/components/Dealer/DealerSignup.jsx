@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -18,7 +18,7 @@ export default function DlSignup() {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-
+  const navigate=useNavigate()
   const onSubmit = async (data) => {
     try {
       const res = await axios.post(
@@ -29,12 +29,16 @@ export default function DlSignup() {
         },
       );
       console.log(res.data);
+      navigate("/dealer/signin")
+      alert("please singin")
      
     } catch (error) {
       console.log(error);
     }
   };
   return (
+
+    
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-y-2 rounded-md border p-6"
@@ -60,7 +64,7 @@ export default function DlSignup() {
       {errors.password && <p>{errors.password.message}</p>}
       <input type="submit" className="rounded-md bg-blue-500 py-1 text-white" />
       <p>
-        Instructor already exist{" "}
+        Dealer already exist{" "}
         <Link to="/dealer/signin" className="text-blue-500 underline">
           Signin
         </Link>

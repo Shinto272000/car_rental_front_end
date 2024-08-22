@@ -17,15 +17,18 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react'
 
-export const CarList = () => {
+export const AvailableCar = () => {
 
     const [cars, setCars] = useState([]);
+    const userId=localStorage.getItem("userId")
+    console.log("userid incarlist",userId);
+    
 
     useEffect(() => {
         const getAllCarss = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:3000/api/v1/dealer/cars",
+                    "http://localhost:3000/api/v1/users/all-cars",
                 );
                 const data = await res.data;
                 console.log(data);
@@ -36,7 +39,7 @@ export const CarList = () => {
         };
         getAllCarss();
     }, []);
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     // const handleEdit = (carId) => {
     //     navigate(`/admin/cars/${carId}`); // Navigate to edit page with car ID
     // };
@@ -68,27 +71,26 @@ export const CarList = () => {
                                 <Divider />
                                 <CardFooter>
                                     <ButtonGroup spacing='2'>
-                                        <button
-                                        //  onClick={() => handleEdit(car._id)}
-                                         >
-                                            <Link to={`/admin/cars/edit/${car._id}`}>Edit</Link>
-                                            
-                                        </button>
+                                        {/* <button onClick={() => handleEdit(car._id)}>
+                                            Edit
+                                        </button> */}
 
                                         <button
-                                            onClick={async () => {
-                                                const res = await axios.delete(
-                                                    `http://localhost:3000/api/v1/dealer/cars/${car._id}`, 
-                                                );
-                                                const data = await res.data;
-                                                console.log(data);
-                                                if (data === "deleted") {
-                                                    window.location.reload();
-                                                }
-                                            }}
-                                            className="rounded-md bg-red-500 px-2 py-1 text-white"
+                                            // onClick={async () => {
+                                            //     const res = await axios.get(
+                                            //         `http://localhost:3000/api/v1/users/all-cars/${car._id}`, 
+                                            //     );
+                                            //     const data = await res.data;
+                                            //     console.log(data);
+                                            //     // if (data === singlecar) {
+                                            //     //     // window.location.reload();
+                                            //     //     navigate
+                                            //     // }
+                                            // }}
+                                            className="rounded-md bg-red-500 px-2 py-1 text-white" 
                                         >
-                                            delete
+                
+                                            <Link to = {`/user/singlecar/${car._id}`} >View</Link>
                                         </button>
 
                                     </ButtonGroup>

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function PickupLocationSelector() {
+export default function PickupLocationSelector({pickupLocationChange}) {
   const [pickupLocation, setPickupLocation] = useState("");
 
   // Array of pickup locations
@@ -8,7 +8,7 @@ export default function PickupLocationSelector() {
     { id: 1, name: "Thrissur" },
     { id: 2, name: "Kochi Airport" },
     { id: 3, name: "Trivandrum Airport" },
-    { id: 4, name: "Koxhikode Airport" },
+    { id: 4, name: "Kozhikode Airport" },
     { id: 5, name: "Varkala Beach" },
   ];
 
@@ -17,14 +17,16 @@ export default function PickupLocationSelector() {
     setPickupLocation(event.target.value);
   };
 
+  useEffect(() => {
+    pickupLocationChange(pickupLocation);
+  }, [pickupLocation]);
+
   return (
-    <div 
-    // className="p-6 bg-gray-100"
-    >
+    <div className="p-4 flex space-x-4 bg-gray-100">
       {/* <label htmlFor="pickup-location" className="block mb-2 text-gray-700 font-semibold">
-        Select Pickup Location:
       </label> */}
       <label htmlFor="Pickup Location" className="block text-lg font-medium mb-1">Pickup Location</label>
+      <div>
       <select
         id="pickup-location"
         value={pickupLocation}
@@ -40,9 +42,10 @@ export default function PickupLocationSelector() {
           </option>
         ))}
       </select>
+      </div>
 
       {pickupLocation && (
-        <div className="mt-4 p-3 bg-white rounded-md shadow-md">
+        <div className="mt-4 bg-white rounded-md shadow-md">
           <span className="text-gray-600">Selected Location: </span>
           <span className="font-bold">{pickupLocation}</span>
         </div>

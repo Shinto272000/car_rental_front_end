@@ -30,7 +30,15 @@ export default function Signin() {
           withCredentials: true,
         },
       );
-      if (res.data==="Logged in!"){
+      console.log(res);
+      
+      const userID = res.data.userId 
+
+      
+      if (res.data.message ==="Logged in!"){
+        localStorage.setItem('userId',userID); 
+        console.log( "user id in storage",userID);
+        
         navigate("/user/home")
       }
       console.log(res.data);

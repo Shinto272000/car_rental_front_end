@@ -31,10 +31,16 @@ export default function DlSignin() {
           withCredentials: true,
         },
       );
-      if (res.data==="Logged in!"){
-        navigate("/admin/carlist")
+      const datass = await res.data
+      console.log(datass);
+      
+      if(datass.dealerRole  ==="admin"){
+        navigate("/admin/dashbord")
       }
-      console.log(res.data);
+      if(datass.dealerRole ==="dealer"){
+        navigate("/dealer/dashbord")
+      }
+      // console.log("role",datass.); 
      
     } catch (error) {
       console.log(error);
@@ -60,7 +66,7 @@ export default function DlSignin() {
       {errors.password && <p>{errors.password.message}</p>}
       <input type="submit" className="rounded-md bg-blue-500 py-1 text-white" />
       <p>
-        Instructor not created yet{" "}
+        Dealer not created yet{" "}
         <Link to="/dealer/signup" className="text-blue-500 underline">
           Signup
         </Link>
