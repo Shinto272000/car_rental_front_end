@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Table, Thead, Tbody, Tr, Th, TableContainer } from "@chakra-ui/react";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 const DealersList = () => {
   const [dealers, setDealers] = useState("");
 
   useEffect(() => {
     const getDealers = async () => {
-      const res = await axios.get(
-        "http://localhost:3000/api/v1/dealer/get-dealers",
+      const res = await axiosInstance.get(
+        "/api/v1/dealer/get-dealers",
       );
       const dlsData = await res.data;
       setDealers(dlsData);
@@ -37,8 +38,8 @@ const DealersList = () => {
                     <Th>
                       <button
                         onClick={async () => {
-                          const res = await axios.delete(
-                            `http://localhost:3000/api/v1/dealer/${dealer._id}`,
+                          const res = await axiosInstance.delete(
+                            `/api/v1/dealer/${dealer._id}`,
                           );
                           const data = await res.data;
                           console.log(data);

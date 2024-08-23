@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 const schema = yup
   .object({
@@ -24,8 +25,8 @@ export default function DlSignin() {
 
   const onSubmit = async(data) => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/dealer/signin",
+      const res = await axiosInstance.post(
+        "/api/v1/dealer/signin",
         data,
         {
           withCredentials: true,

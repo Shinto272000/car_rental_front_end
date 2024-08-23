@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 const schema = yup
   .object({
@@ -21,8 +22,8 @@ export default function CarAdd() {
   
   useEffect(() => {
     const dealersList = async () => {
-      const res = await axios.get(
-        "http://localhost:3000/api/v1/dealer/get-dealers",
+      const res = await axiosInstance.get(
+        "/api/v1/dealer/get-dealers",
       );
       const data = await res.data;
       console.log(data);
@@ -48,8 +49,8 @@ export default function CarAdd() {
       image: data.image[0]
     };
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/dealer/addcars",
+      const res = await axiosInstance.post(
+        "/api/v1/dealer/addcars",
         requestBody,
         {
           withCredentials: true,

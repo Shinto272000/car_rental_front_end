@@ -17,6 +17,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import DatePickerss from '../Date/DatePicker1'
 import PickupLocationSelector from '../Date/PickupLocation'
+import { axiosInstance } from '../../Config/AxiosConfig'
 
 const SingleCar = () => {
   const [scar,setScar] = useState([])
@@ -28,8 +29,8 @@ const SingleCar = () => {
 useEffect(()=>{
   const getSingleCar = async () => {
     try {
-        const res = await axios.get(
-            `http://localhost:3000/api/v1/users/all-cars/${carId}`,
+        const res = await axiosInstance.get(
+            `/api/v1/users/all-cars/${carId}`,
         );
         const data = await res.data;
         console.log(data);
@@ -61,8 +62,8 @@ const paymentHandler = async (event, carId) => {
   // console.log("Selected Car:", selectedCar); // Debugging: Log the selected car data
   // console.log("Price per Day:", selectedCar.priceperDay); // Debugging: Log the price per day
 
-  const response = await axios.post(
-    "http://localhost:3000/api/v1/payment/order",
+  const response = await axiosInstance.post(
+    "/api/v1/payment/order",
     { amount: totalAmount  },
   );
   console.log(response);
@@ -81,8 +82,8 @@ const paymentHandler = async (event, carId) => {
     handler: async function (response) {
       const body = { ...response };
 
-      const validateResponse = await axios.post(
-        "http://localhost:3000/api/v1/payment/verify",
+      const validateResponse = await axiosInstance.post(
+        "/api/v1/payment/verify",
         body,
       );
 

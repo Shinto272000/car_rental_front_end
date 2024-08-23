@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios'; 
+import { axiosInstance } from '../../Config/AxiosConfig';
 
 
 const OrderSummary = () => {
@@ -28,7 +29,7 @@ const OrderSummary = () => {
    useEffect(() => { 
     const saveOrder = async () => { 
       try {
-        await axios.post('http://localhost:3000/api/v1/orderdata/details', {
+        await axiosInstance.post('/api/v1/orderdata/details', {
           car,
           days,
           totalAmount,
@@ -128,8 +129,8 @@ const OrderSummary = () => {
 
                                 <button
                                     // onClick={async () => {
-                                    //     const res = await axios.get(
-                                    //         `http://localhost:3000/api/v1/users/all-cars/${car._id}`, 
+                                    //     const res = await axiosInstance.get(
+                                    //         `/api/v1/users/all-cars/${car._id}`, 
                                     //     );
                                     //     const data = await res.data;
                                     //     console.log(data);

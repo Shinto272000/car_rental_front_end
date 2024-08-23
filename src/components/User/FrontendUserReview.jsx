@@ -11,8 +11,8 @@
 // //     useEffect(() => {
 // //         const userReview = async () => {
 // //             try {
-// //                 const res = await axios.get(
-// //                     "http://localhost:3000/api/v1/review/getreview",
+// //                 const res = await axiosInstance.get(
+// //                     "/api/v1/review/getreview",
 // //                 );
 // //                 const data = await res.data;
 // //                 console.log(data);
@@ -73,7 +73,7 @@
 //     useEffect(() => {
 //         const fetchReviews = async () => {
 //             try {
-//                 const res = await axios.get("http://localhost:3000/api/v1/review/getreview");
+//                 const res = await axiosInstance.get("/api/v1/review/getreview");
 //                 setReviews(res.data);
 //             } catch (error) {
 //                 console.error(error);
@@ -141,6 +141,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardHeader, CardBody, Heading, Stack, StackDivider, Box, Text, VStack, useBreakpointValue, Container } from '@chakra-ui/react';
 import axios from 'axios';
+import { axiosInstance } from '../../Config/AxiosConfig';
 
 const FrontendUserReview = () => {
     const [reviews, setReviews] = useState([]);
@@ -149,7 +150,7 @@ const FrontendUserReview = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const res = await axios.get("http://localhost:3000/api/v1/review/getreview");
+                const res = await axiosInstance.get("/api/v1/review/getreview");
                 setReviews(res.data);
             } catch (error) {
                 console.error(error);

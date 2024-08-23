@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 const schema = yup
   .object({
@@ -34,8 +35,8 @@ export default function UserReview() {
       review: data.review,
     };
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/review/reviewdatas",
+      const res = await axiosInstance.post(
+        "/api/v1/review/reviewdatas",
         requestBody,
         {
           withCredentials: true,

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../Config/AxiosConfig";
 
 const UserRoutes = ({ children }) => {
   const navigate = useNavigate();
@@ -8,8 +9,8 @@ const UserRoutes = ({ children }) => {
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:3000/api/v1/users/check-user",
+        const res = await axiosInstance.get(
+          "/api/v1/users/check-user",
           {
             withCredentials: true,
           },

@@ -343,6 +343,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { useParams, useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 const schema = yup
   .object({
@@ -363,7 +364,7 @@ export default function CarEdit() {
   useEffect(() => {
     const fetchCarData = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/v1/dealer/get-car/${id}`);
+        const res = await axiosInstance.get(`/api/v1/dealer/get-car/${id}`);
         setCarData(res.data);
       } catch (error) {
         console.error("Error fetching car data:", error);
@@ -405,8 +406,8 @@ export default function CarEdit() {
     });
 
     try {
-      const res = await axios.put(
-        `http://localhost:3000/api/v1/dealer/cars/${id}`,
+      const res = await axiosInstance.put(
+        `/api/v1/dealer/cars/${id}`,
         formData,
         {
           withCredentials: true,

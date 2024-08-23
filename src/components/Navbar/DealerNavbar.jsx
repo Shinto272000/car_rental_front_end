@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 const DealerNavbar = () => {
     const navLinks = [
     {
+        path:"/dealer/dashbord",
+        value:"dashbord"
+    },     
+    {
         path:"/dealer/add-cars",
         value:"Add Car"
     },
@@ -11,10 +15,7 @@ const DealerNavbar = () => {
         path:"/dealer/signup",
         value:"signout"
     },
-    {
-        path:"/dealer/dashbord",
-        value:"dashbord"
-    }
+    
 ]
   return (
     <div>

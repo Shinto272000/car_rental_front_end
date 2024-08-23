@@ -16,6 +16,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react'
+import { axiosInstance } from '../../Config/AxiosConfig';
 
 export const AvailableCar = () => {
 
@@ -27,8 +28,8 @@ export const AvailableCar = () => {
     useEffect(() => {
         const getAllCarss = async () => {
             try {
-                const res = await axios.get(
-                    "http://localhost:3000/api/v1/users/all-cars",
+                const res = await axiosInstance.get(
+                    "/api/v1/users/all-cars",
                 );
                 const data = await res.data;
                 console.log(data);

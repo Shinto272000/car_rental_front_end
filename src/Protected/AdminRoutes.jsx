@@ -2,14 +2,15 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../Config/AxiosConfig';
 
 const AdminRoute = ({children}) => {
     const navigate = useNavigate()
     useEffect(() => {
         const checkAdminn = async () => {
             try {
-                const res = await axios.get(
-                    "http://localhost:3000/api/v1/dealer/check-admin",
+                const res = await axiosInstance.get(
+                    "/api/v1/dealer/check-admin",
                     {
                         withCredentials: true,
                     },

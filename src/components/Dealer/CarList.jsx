@@ -16,6 +16,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react'
+import { axiosInstance } from '../../Config/AxiosConfig';
 
 export const CarList = () => {
 
@@ -24,8 +25,8 @@ export const CarList = () => {
     useEffect(() => {
         const getAllCarss = async () => {
             try {
-                const res = await axios.get(
-                    "http://localhost:3000/api/v1/dealer/cars",
+                const res = await axiosInstance.get(
+                    "/api/v1/dealer/cars",
                 );
                 const data = await res.data;
                 console.log(data);
@@ -77,8 +78,8 @@ export const CarList = () => {
 
                                         <button
                                             onClick={async () => {
-                                                const res = await axios.delete(
-                                                    `http://localhost:3000/api/v1/dealer/cars/${car._id}`, 
+                                                const res = await axiosInstance.delete(
+                                                    `/api/v1/dealer/cars/${car._id}`, 
                                                 );
                                                 const data = await res.data;
                                                 console.log(data);

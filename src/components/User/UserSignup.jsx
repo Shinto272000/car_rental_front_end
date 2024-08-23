@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 
 const userSchema = yup
@@ -26,8 +27,8 @@ export default function Signup() {
 
   const onSubmit =async (data) => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/users/signup",
+      const res = await axiosInstance.post(
+        "/api/v1/users/signup",
         data,
         {
           withCredentials: true,

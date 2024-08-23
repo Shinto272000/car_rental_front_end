@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 const schema = yup
   .object({
@@ -21,8 +22,8 @@ export default function DlSignup() {
   const navigate=useNavigate()
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/dealer/signup",
+      const res = await axiosInstance.post(
+        "/api/v1/dealer/signup",
         data,
         {
           withCredentials: true,

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { axiosInstance } from '../../Config/AxiosConfig';
 
 
 const UserOrders = () => {
@@ -16,7 +17,7 @@ const UserOrders = () => {
           throw new Error('User not logged in');
         }
         
-        const response = await axios.get(`http://localhost:3000/api/v1/orderdata/orders/${userId}`);
+        const response = await axiosInstance.get(`/api/v1/orderdata/orders/${userId}`);
         console.log("response is given",response );
         
         // const data = response.data.data;

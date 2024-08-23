@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { axiosInstance } from "../../Config/AxiosConfig";
 
 function Cars() {
   const [cars, setCars] = useState([]);
@@ -7,8 +8,8 @@ function Cars() {
   useEffect(() => {
     const getAllCars = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:3000/api/v1/cars",
+        const res = await axiosInstance.get(
+          "/api/v1/cars",
         );
         const data = await res.data;
         console.log(data);
@@ -26,8 +27,8 @@ function Cars() {
     // console.log("Selected Car:", selectedCar); // Debugging: Log the selected car data
     // console.log("Price per Day:", selectedCar.priceperDay); // Debugging: Log the price per day
 
-    const response = await axios.post(
-      "http://localhost:3000/api/v1/payment/order",
+    const response = await axiosInstance.post(
+      "/api/v1/payment/order",
       { amount: selectedCar.priceperDay },
     );
     console.log(response);
@@ -46,8 +47,8 @@ function Cars() {
       handler: async function (response) {
         const body = { ...response };
 
-        const validateResponse = await axios.post(
-          "http://localhost:3000/api/v1/payment/verify",
+        const validateResponse = await axiosInstance.post(
+          "/api/v1/payment/verify",
           body,
         );
 
