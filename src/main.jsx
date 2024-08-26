@@ -229,9 +229,9 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
   <ChakraProvider>
     <RouterProvider router={router} />
     </ChakraProvider>
-  </React.StrictMode>
+  
 )

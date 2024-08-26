@@ -151,6 +151,7 @@ const FrontendUserReview = () => {
         const fetchReviews = async () => {
             try {
                 const res = await axiosInstance.get("/api/v1/review/getreview");
+                console.log(res)
                 setReviews(res.data);
             } catch (error) {
                 console.error(error);
