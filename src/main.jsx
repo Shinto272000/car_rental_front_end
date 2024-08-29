@@ -38,6 +38,7 @@ import UserReview from './components/User/UserReview.jsx';
 import FrontendUserReview from './components/User/FrontendUserReview.jsx';
 import AdminDashbord from './components/Dealer/AdminDashbord.jsx';
 import DealersList from './components/Dealer/DealersList.jsx';
+import AdminSigninPage from './Pages/Dealer/AdminSigninPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -186,7 +187,11 @@ const router = createBrowserRouter([
     {
       path: "/admin/cars/edit/:id",
         element: <CarEdit/>,
-    },]
+    },
+    {
+      path: "/admin/signin",
+      element: <AdminSigninPage />
+    }]
   },
 
 
