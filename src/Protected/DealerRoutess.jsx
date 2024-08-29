@@ -7,6 +7,7 @@ import { axiosInstance } from '../Config/AxiosConfig';
 const DealerRoutess = ({children}) => {
     const navigate = useNavigate()
     useEffect(() => {
+        const authToken = localStorage.getItem('authToken')
         const checkUser = async () => {
             try {
                 const res = await axiosInstance.get(
