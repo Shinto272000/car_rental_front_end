@@ -72,6 +72,10 @@ const router = createBrowserRouter([
         path: "/dealer/signup",
         element: <DlsSignupPage />
       },
+      {
+        path: "/dealer/signin",
+        element: <DlsSigninPage />
+      }
       ]
   },
   {
@@ -216,10 +220,7 @@ const router = createBrowserRouter([
       element:<DealerDashbord/>
     },
     
-    {
-      path: "/dealer/signin",
-      element: <DlsSigninPage />
-    }
+   
     // {
     //   path: "/admin/carlist",
     //     element: <CarList/>,
