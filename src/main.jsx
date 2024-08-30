@@ -179,10 +179,10 @@ const router = createBrowserRouter([
       path: "/admin/carlist",
         element: <CarList/>,
     },
-    // {
-    //   path: "/adminssss/add-cars",
-    //   element:<CarAdd/>
-    // },
+    {
+      path: "/adminssss/add-cars",
+      element:<CarAdd/>
+    },
     {
       path: "/admin/dashbord",
         element: <AdminDashbord/>,

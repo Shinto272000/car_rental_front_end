@@ -70,12 +70,7 @@ export default function DlSignup() {
           Signin
         </Link>
       </p>
-      <p>
-        Areyou Admin{" "}
-        <Link to="/admin/signin" className="text-blue-500 underline">
-          SignIn
-        </Link>
-      </p>
+      
     </form>
   );
 }
