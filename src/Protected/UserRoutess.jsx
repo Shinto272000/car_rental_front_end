@@ -24,7 +24,7 @@ const UserRoutes = ({ children }) => {
         // }
       } catch (error) {
         console.error("Error occurred while checking user:", error);
-        navigate("/user/signup", { replace: true });
+        navigate("/user/signin", { replace: true });
       }
     };
     checkUser();
