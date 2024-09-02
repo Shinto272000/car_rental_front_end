@@ -17,7 +17,7 @@ const UserRoutes = ({ children }) => {
         );
 
         const data = res.data;
-        console.log(data);
+        console.log("respose after login is ",data);
         
         if (data === "user not found") {      
           navigate("/user/signup", { replace: true });
@@ -28,7 +28,7 @@ const UserRoutes = ({ children }) => {
       }
     };
     checkUser();
-  }, [navigate]);
+  }, []);
 
   return children;
 };

@@ -39,6 +39,8 @@ export default function Signin() {
       if (res.data.message ==="Logged in!"){
         localStorage.setItem('userId',userID); 
         console.log( "user id in storage",userID);
+        console.log("token of signiininininini",res.data.token);
+        
         
         navigate("/user/home")
       }
