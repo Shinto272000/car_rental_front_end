@@ -54,6 +54,10 @@ const router = createBrowserRouter([
         path: "/review",
         element: <FrontendUserReview/>,
       },
+      {
+        path: "/user/home",
+          element: <UserHome/>
+      },
 
       // {
       //   path :"/table",
@@ -84,10 +88,7 @@ const router = createBrowserRouter([
       <UserLayout/>
     </UserRoutes>)
     ,
-    children : [{
-      path: "/user/home",
-        element: <UserHome/>
-    },
+    children : [
     {
       path: "/user/cars",
         element: <Cars/>,
