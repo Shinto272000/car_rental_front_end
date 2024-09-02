@@ -2,19 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const UserNavbar = () => {
-    const navLinks = [{
-        path:"/user/home",
-        value:"Home"
-    },
+    const navLinks = [
+    //     {
+    //     path:"/user/home",
+    //     value:"Home"
+    // },
     // {
     //     path:"/user/cars",
     //     value:"BookNow"
     // },
     
-    {
-        path:"/user/available-cars",
-        value:"CarList"
-    },
+    // {
+    //     path:"/user/available-cars",
+    //     value:"CarList"
+    // },
     
     {
         path:"/order-details",
