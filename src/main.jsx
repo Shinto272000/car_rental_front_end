@@ -54,24 +54,7 @@ const router = createBrowserRouter([
         path: "/review",
         element: <FrontendUserReview/>,
       },
-      {
-        path: "/user/home",
-          element: <UserHome/>
-      },
-
-      // {
-      //   path :"/table",
-      //   element : <Table1/>
-      // },
-
-      {
-        path: "/user/signup",
-        element: <SignUpPage />
-      },
-      {
-        path: "/user/signin",
-        element: <SigninPage />
-      },
+      
       {
         path: "/dealer/signup",
         element: <DlsSignupPage />
@@ -112,7 +95,21 @@ const router = createBrowserRouter([
   {
     path :"/order-review",
     element : <UserReview/>
-  }
+  },
+  
+  {
+    path: "/user/home",
+      element: <UserHome/>
+  },
+
+  {
+    path: "/user/signup",
+    element: <SignUpPage />
+  },
+  {
+    path: "/user/signin",
+    element: <SigninPage />
+  },
 ]
   },
   // {
