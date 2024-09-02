@@ -19,9 +19,9 @@ const UserRoutes = ({ children }) => {
         const data = res.data;
         console.log("respose after login is ",data);
         
-        if (data === "user not found") {      
-          navigate("/user/signup", { replace: true });
-        }
+        // if (data === "user not found") {      
+        //   navigate("/user/signup", { replace: true });
+        // }
       } catch (error) {
         console.error("Error occurred while checking user:", error);
         navigate("/user/signup", { replace: true });
