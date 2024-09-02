@@ -25,7 +25,7 @@ const UserNavbar = () => {
         value:"Review"
     },
     {
-        path:"/user/signup",
+        path:"/",
         value:"signout"
     },
     
