@@ -30,7 +30,7 @@ const DealerRoutess = ({children}) => {
                 // }
             } catch (error) {
                 console.error("Error occurred while checking dealer:", error);
-                navigate("/dealer/signup", { replace: true });
+                navigate("/dealer/signin", { replace: true });
             }
         };
         checkUser();

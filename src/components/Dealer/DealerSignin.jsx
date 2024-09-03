@@ -33,8 +33,10 @@ export default function DlSignin() {
         },
       );
       const datass = await res.data
+      sessionStorage.setItem("token",datass.token);
       console.log(datass);
       localStorage.setItem("authToken",datass.token)
+      
       
       if(datass.dealerRole  ==="admin"){
 
