@@ -39,7 +39,7 @@ export default function Signin() {
       
       if (res.data.message ==="Logged in!"){
         localStorage.setItem('userId',userID); 
-        sessionStorage.setItem("token",resData.token);
+        // sessionStorage.setItem("token",resData.token);
         console.log( "user id in storage",userID);
         console.log("token of signiininininini",res.data.token);
         

@@ -13,7 +13,12 @@ const Navbar = () => {
     {
         path:"/dealer/signup",
         value:"Dealer"
-    },]
+    },
+    // {
+    //     path:"/admin/signin",
+    //     value:"Admin"
+    // },
+]
   return (
     <div>
         <ul className='flex justify-between shadow-lg p-5'>

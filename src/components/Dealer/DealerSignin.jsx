@@ -33,12 +33,12 @@ export default function DlSignin() {
         },
       );
       const datass = await res.data
-      sessionStorage.setItem("token",datass.token);
+      // sessionStorage.setItem("token",datass.token);
       console.log(datass);
-      localStorage.setItem("authToken",datass.token)
+      // localStorage.setItem("authToken",datass.token)
       
       
-      if(datass.dealerRole  ==="admin"){
+      if(datass.dealerRole  ==="admin"){                                                                                   
 
         navigate("/admin/dashbord")
       }

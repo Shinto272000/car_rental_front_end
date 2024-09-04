@@ -55,7 +55,7 @@ function DealerDashbord() {
             size="lg"
             w="full"
           >
-            <Link to="/dealer/signin">  Signout </Link>
+            <Link to="/">  Signout </Link>
            
           </Button>
         </VStack>

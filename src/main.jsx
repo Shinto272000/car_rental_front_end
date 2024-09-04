@@ -54,7 +54,14 @@ const router = createBrowserRouter([
         path: "/review",
         element: <FrontendUserReview/>,
       },
-      
+      {
+        path: "/user/signup",
+        element: <SignUpPage />
+      },
+      {
+        path: "/user/signin",
+        element: <SigninPage />
+      },
       {
         path: "/dealer/signup",
         element: <DlsSignupPage />
@@ -62,7 +69,9 @@ const router = createBrowserRouter([
       {
         path: "/dealer/signin",
         element: <DlsSigninPage />
-      }
+      },
+      
+      
       ]
   },
   {
@@ -102,14 +111,7 @@ const router = createBrowserRouter([
       element: <UserHome/>
   },
 
-  {
-    path: "/user/signup",
-    element: <SignUpPage />
-  },
-  {
-    path: "/user/signin",
-    element: <SigninPage />
-  },
+  
 ]
   },
   // {
@@ -169,10 +171,11 @@ const router = createBrowserRouter([
       <AdminLayout/>
       </AdminRoute>),
     children : [
-    //   {
-    //   path: "/admin/add-cars",
-    //   element:<CarAdd/>
-    // },
+    
+      {
+      path: "/admin/add-cars",
+      element:<CarAdd/>
+    },
     {
       path: "/admin/carlist",
         element: <CarList/>,
@@ -197,7 +200,8 @@ const router = createBrowserRouter([
     {
       path: "/admin/signin",
       element: <AdminSigninPage />
-    }]
+    },
+    ]
   },
 
 
@@ -217,6 +221,28 @@ const router = createBrowserRouter([
       path: "/dealer/dashbord",
       element:<DealerDashbord/>
     },
+    
+    // {
+    //   path: "/admin/carlist",
+    //     element: <AdminRoute><CarList/></AdminRoute> ,
+    // },
+    // {
+    //   path: "/adminssss/add-cars",
+    //   element:<AdminRoute><CarAdd/> </AdminRoute> 
+    // },
+    // {
+    //   path: "/admin/dashbord",
+    //     element: <AdminRoute><AdminDashbord/></AdminRoute> ,
+    // },
+    // {
+    //   path: "/admin/dealersList",
+    //     element: <AdminRoute> <DealersList/> </AdminRoute> ,
+    // },
+
+    // {
+    //   path: "/admin/cars/edit/:id",
+    //     element: <AdminRoute> <CarEdit/> </AdminRoute> ,
+    // },
     
    
     // {

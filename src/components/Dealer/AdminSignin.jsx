@@ -67,12 +67,12 @@ export default function AdmSignin() {
       />
       {errors.password && <p>{errors.password.message}</p>}
       <input type="submit" className="rounded-md bg-blue-500 py-1 text-white" />
-      <p>
+      {/* <p>
         Dealer not created yet{" "}
         <Link to="/dealer/signup" className="text-blue-500 underline">
           Signup
         </Link>
-      </p>
+      </p> */}
     </form>
   );
 }
