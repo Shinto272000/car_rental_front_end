@@ -33,9 +33,11 @@ export default function DlSignin() {
         },
       );
       const datass = await res.data
+      const dealerID = res.data.dealerId 
       // sessionStorage.setItem("token",datass.token);
       console.log(datass);
-      // localStorage.setItem("authToken",datass.token)
+      console.log("dealer id is ", dealerID)
+      localStorage.setItem("dealerId",dealerID)
       
       
       if(datass.dealerRole  ==="admin"){                                                                                   

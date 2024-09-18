@@ -61,7 +61,7 @@ export default function CarAdd() {
       );
       console.log(res.data);
     } catch (error) {
-      console.log(error);
+      console.log(error); 
     }
   };
   return (
@@ -129,3 +129,6 @@ export default function CarAdd() {
     </div>
   );
 }
+
+// 66c24a388fd68b44be8a4ef7
+// 66c24a388fd68b44be8a4ef7

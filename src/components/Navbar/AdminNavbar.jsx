@@ -20,6 +20,12 @@ const AdminNavbar = () => {
         path:"/admin/dealersList",
         value:"Dealers List"
     },
+    {
+        path:"/admin/allordersss",
+        value:"All Orders"
+    },
+
+    
     
     {
         path:"/dealer/signup",

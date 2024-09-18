@@ -15,6 +15,10 @@ const DealerNavbar = () => {
         path:"/",
         value:"signout"
     },
+  //   {
+  //     path:"/dealer/garagge",
+  //     value:"Garagge"
+  // },
     
 ]
   return (

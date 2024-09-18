@@ -39,6 +39,8 @@ import FrontendUserReview from './components/User/FrontendUserReview.jsx';
 import AdminDashbord from './components/Dealer/AdminDashbord.jsx';
 import DealersList from './components/Dealer/DealersList.jsx';
 import AdminSigninPage from './Pages/Dealer/AdminSigninPage.jsx';
+import AllOrderss from './components/Dealer/GetallOrder.jsx';
+import { DealerGarage } from './components/Dealer/DealerGarage.jsx';
 
 
 const router = createBrowserRouter([
@@ -201,6 +203,10 @@ const router = createBrowserRouter([
       path: "/admin/signin",
       element: <AdminSigninPage />
     },
+    {
+      path: "/admin/allordersss",
+      element: <AllOrderss />
+    },
     ]
   },
 
@@ -221,6 +227,10 @@ const router = createBrowserRouter([
       path: "/dealer/dashbord",
       element:<DealerDashbord/>
     },
+    {
+      path: "/dealer/garagge",
+      element:<DealerGarage/>
+    }, 
     
     // {
     //   path: "/admin/carlist",
