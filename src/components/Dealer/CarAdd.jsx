@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { axiosInstance } from "../../Config/AxiosConfig";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -19,6 +20,7 @@ const schema = yup
 
 export default function CarAdd() {
   const [dealers, setDealers] = useState([]);
+  const navigate = useNavigate()
   
   useEffect(() => {
     const dealersList = async () => {
@@ -59,6 +61,12 @@ export default function CarAdd() {
           },
         },
       );
+      if(res)
+      {
+        alert("car added successfully  you can find your car in garagge or carlist")
+        navigate(-1);
+      }
+      
       console.log(res.data);
     } catch (error) {
       console.log(error); 

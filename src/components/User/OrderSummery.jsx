@@ -48,6 +48,9 @@ const OrderSummary = () => {
       saveOrder();
     }
   }, [car, days, totalAmount, startDate, endDate, loocation,userId]);
+  console.log("order summery of car and its id is",car);
+  console.log("order summery dealerid",car.dealer);
+  
 
   if (!car) {
     return <p>No order summary available.</p>;

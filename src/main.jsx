@@ -41,6 +41,8 @@ import DealersList from './components/Dealer/DealersList.jsx';
 import AdminSigninPage from './Pages/Dealer/AdminSigninPage.jsx';
 import AllOrderss from './components/Dealer/GetallOrder.jsx';
 import { DealerGarage } from './components/Dealer/DealerGarage.jsx';
+import DealerCarEdit from './components/Dealer/DealerCarEdit.jsx';
+import DealersOrders from './components/Dealer/DealersOrders.jsx';
 
 
 const router = createBrowserRouter([
@@ -231,7 +233,14 @@ const router = createBrowserRouter([
       path: "/dealer/garagge",
       element:<DealerGarage/>
     }, 
-    
+    {
+      path: "/dealer/cars/edit/:id",
+        element: <DealerCarEdit/>,
+    },
+    {
+      path: "/dealer/orderd-vehicle",
+      element:<DealersOrders/>
+    }, 
     // {
     //   path: "/admin/carlist",
     //     element: <AdminRoute><CarList/></AdminRoute> ,

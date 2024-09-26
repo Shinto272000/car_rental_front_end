@@ -3,22 +3,29 @@ import { Link } from 'react-router-dom'
 
 const DealerNavbar = () => {
     const navLinks = [
-    // {
-    //     path:"/dealer/dashbord",
-    //     value:"dashbord"
-    // },     
+    {
+        path:"/dealer/dashbord",
+        value:"dashbord"
+    },     
     // {
     //     path:"/dealer/add-cars",
     //     value:"Add Car"
     // },
+    
     {
-        path:"/",
-        value:"signout"
-    },
-  //   {
-  //     path:"/dealer/garagge",
-  //     value:"Garagge"
-  // },
+      path:"/dealer/garagge",
+      value:"Garagge"
+  },
+  {
+    path:"/dealer/orderd-vehicle",
+    value:"Orders"
+},
+{
+  path:"/",
+  value:"signout"
+},
+
+  
     
 ]
   return (

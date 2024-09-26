@@ -50,6 +50,26 @@ function DealerDashbord() {
            
           </Button>
           <Button
+            colorScheme="red"
+            
+            size="lg"
+            w="full"
+          >
+            <Link to="/dealer/garagge">  Garrage </Link>
+           
+          </Button>
+
+          <Button
+            colorScheme="yellow"
+            
+            size="lg"
+            w="full"
+          >
+            <Link to="/dealer/orderd-vehicle">  Orders </Link>
+           
+          </Button>
+
+          <Button
             colorScheme="teal"
            
             size="lg"

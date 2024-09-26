@@ -31,9 +31,11 @@ export const DealerGarage = () => {
                 const res = await axiosInstance.get(
                     `/api/v1/dealer/dealercar/${dealerId}`,
                 );
+                
                 const data = await res.data;
                 console.log(data);
                 setCars(data);
+                console.log(typeof cars);
             } catch (error) {
                 console.log(error);
             }
@@ -50,7 +52,7 @@ export const DealerGarage = () => {
         <div>
             <SimpleGrid columns={3} spacing={10} p={4}>
                 {
-                    cars.map((car, index) => ( 
+                    cars &&  cars.map((car, index) => ( 
                         <>
                             <Card key={index} maxW='sm'>
                                 <CardBody>
@@ -75,8 +77,8 @@ export const DealerGarage = () => {
                                         <button
                                         //  onClick={() => handleEdit(car._id)}
                                          >
-                                            edit
-                                            {/* <Link to={`/admin/cars/edit/${car._id}`}>Edit</Link> */}
+                                    
+                                            <Link to={`/dealer/cars/edit/${car._id}`}>Edit</Link>
                                             
                                         </button>
 
