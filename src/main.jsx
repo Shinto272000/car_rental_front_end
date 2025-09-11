@@ -25,7 +25,7 @@ import { CarList } from './components/Dealer/CarList.jsx';
 import CarAdd from './components/Dealer/CarAdd.jsx';
 import AdminLayout from './Layout/AdminLayout.jsx';
 import CarEdit from './components/Dealer/CarEdit.jsx';
-import UserHome from './UserHome.jsx';
+import UserHome from './components/User/UserHome.jsx';
 import { AvailableCar } from './components/User/AvailableCars.jsx';
 import SingleCar from './components/User/SingleCar.jsx';
 import UserRoutes from './Protected/UserRoutess.jsx';
