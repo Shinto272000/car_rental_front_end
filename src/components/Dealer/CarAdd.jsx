@@ -20,13 +20,11 @@ const schema = yup
 
 export default function CarAdd() {
   const [dealers, setDealers] = useState([]);
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     const dealersList = async () => {
-      const res = await axiosInstance.get(
-        "/api/v1/dealer/get-dealers",
-      );
+      const res = await axiosInstance.get("/api/v1/dealer/get-dealers");
       const data = await res.data;
       console.log(data);
       setDealers(data);
@@ -48,7 +46,7 @@ export default function CarAdd() {
       description: data.description,
       priceperDay: data.priceperDay,
       dealerEmail: data.dealerEmail,
-      image: data.image[0]
+      image: data.image[0],
     };
     try {
       const res = await axiosInstance.post(
@@ -59,84 +57,106 @@ export default function CarAdd() {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        },
+        }
       );
-      if(res)
-      {
-        alert("car added successfully  you can find your car in garagge or carlist")
+      if (res) {
+        alert("Car added successfully. You can find your car in the garage or car list.");
         navigate(-1);
       }
-      
       console.log(res.data);
     } catch (error) {
-      console.log(error); 
+      console.log(error);
     }
   };
+
   return (
-    <div className="flex h-screen w-screen items-center justify-center ">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-y-2 rounded-md border p-6"
-      >
-        <input
-          {...register("model")}  
-          type="text"
-          placeholder="model" 
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors. model && <p>{errors. model.message}</p>}
-
-        <input
-          {...register("make")}
-          type="text"
-          placeholder="make"
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.make && <p>{errors.make.message}</p>}
-
-        <input
-          {...register("year")}
-          type="text"
-          placeholder="year"
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.year && <p>{errors.year.message}</p>}
-        <input
-          {...register("description")}
-          type="text"
-          placeholder="description"
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.description && <p>{errors.description.message}</p>}
-        <input
-          {...register("priceperDay")}
-          type="text"
-          placeholder="priceperDay"
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.priceperDay && <p>{errors.priceperDay.message}</p>}
-        <input
-          {...register("image")}
-          type="file"
-          placeholder="image"
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-        />
-        {errors.image && <p>{errors.image.message}</p>}
-        <select {...register("dealerEmail")}>
-          {dealers.map((dealer, index) => (
-            <option key={index} value={dealer.email}>
-              {dealer.email}
-            </option>
-          ))}
-        </select>
-        <input
-          type="submit"
-          className="rounded-md bg-blue-500 py-1 text-white"
-        />
-      </form>
+    <div
+      className="min-h-screen w-full flex items-center justify-center bg-cover bg-center p-4"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+      }}
+    >
+      <div className="w-full max-w-lg bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-xl shadow-2xl p-8">
+        <h2 className="text-3xl font-bold text-white text-center mb-8">Add a New Car</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <input
+                {...register("model")}
+                type="text"
+                placeholder="Model"
+                className="w-full bg-transparent border-b-2 border-white text-white placeholder-gray-300 focus:outline-none focus:border-blue-400 py-2"
+              />
+              {errors.model && <p className="text-red-400 text-sm mt-1">{errors.model.message}</p>}
+            </div>
+            <div>
+              <input
+                {...register("make")}
+                type="text"
+                placeholder="Make"
+                className="w-full bg-transparent border-b-2 border-white text-white placeholder-gray-300 focus:outline-none focus:border-blue-400 py-2"
+              />
+              {errors.make && <p className="text-red-400 text-sm mt-1">{errors.make.message}</p>}
+            </div>
+            <div>
+              <input
+                {...register("year")}
+                type="text"
+                placeholder="Year"
+                className="w-full bg-transparent border-b-2 border-white text-white placeholder-gray-300 focus:outline-none focus:border-blue-400 py-2"
+              />
+              {errors.year && <p className="text-red-400 text-sm mt-1">{errors.year.message}</p>}
+            </div>
+            <div>
+              <input
+                {...register("priceperDay")}
+                type="text"
+                placeholder="Price per Day"
+                className="w-full bg-transparent border-b-2 border-white text-white placeholder-gray-300 focus:outline-none focus:border-blue-400 py-2"
+              />
+              {errors.priceperDay && <p className="text-red-400 text-sm mt-1">{errors.priceperDay.message}</p>}
+            </div>
+          </div>
+          <div>
+            <textarea
+              {...register("description")}
+              placeholder="Description"
+              className="w-full bg-transparent border-b-2 border-white text-white placeholder-gray-300 focus:outline-none focus:border-blue-400 py-2 h-24 resize-none"
+            />
+            {errors.description && <p className="text-red-400 text-sm mt-1">{errors.description.message}</p>}
+          </div>
+          <div>
+            <select
+              {...register("dealerEmail")}
+              className="w-full bg-transparent border-b-2 border-white text-white placeholder-gray-300 focus:outline-none focus:border-blue-400 py-2"
+            >
+              <option value="" className="text-black">Select a Dealer</option>
+              {dealers.map((dealer, index) => (
+                <option key={index} value={dealer.email} className="text-black">
+                  {dealer.email}
+                </option>
+              ))}
+            </select>
+            {errors.dealerEmail && <p className="text-red-400 text-sm mt-1">{errors.dealerEmail.message}</p>}
+          </div>
+          <div>
+            <label className="text-white">Car Image</label>
+            <input
+              {...register("image")}
+              type="file"
+              className="w-full text-white mt-2"
+            />
+            {errors.image && <p className="text-red-400 text-sm mt-1">{errors.image.message}</p>}
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Add Car
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
-
-// 66c24a388fd68b44be8a4ef7
-// 66c24a388fd68b44be8a4ef7

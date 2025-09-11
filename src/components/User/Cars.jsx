@@ -81,20 +81,20 @@ function Cars() {
 
   return (
     <>
-      <div className="grid grid-cols-3 px-4">
+      <div className="grid grid-cols-3 px-4 bg-white dark:bg-gray-900">
         {cars.map((car, index) => (
-          <div key={index} className="flex h-[300px] w-[600px]">
+          <div key={index} className="flex h-[300px] w-[600px] bg-white dark:bg-gray-800 shadow-lg rounded-lg m-4">
             <section>
               <img
                 src={car.image}
                 alt="car image"
-                className="w-[200px] border-none bg-center"
+                className="w-[200px] border-none bg-center rounded-l-lg"
               />
             </section>
-            <section className="space-y-4 px-3">
-              <h3 className="text-xl font-semibold">{car.model}</h3>
-              <p className="font-light text-gray-500">{car.description}</p>
-              <h3>{car.priceperDay}</h3>
+            <section className="space-y-4 px-3 py-4">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{car.model}</h3>
+              <p className="font-light text-gray-500 dark:text-gray-400">{car.description}</p>
+              <h3 className="text-gray-800 dark:text-white">{car.priceperDay}</h3>
               <button
                 onClick={(event) => paymentHandler(event,car._id)}
                 className="rounded-lg bg-blue-500 px-2 py-1 text-white"

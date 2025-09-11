@@ -57,23 +57,12 @@ const OrderSummary = () => {
   }
 
   return (
-    // <Box p={4} maxW="md" mx="auto" mt={10}>
-    //   <Heading size='lg' mb={4}>Order Summary</Heading>
-    //   <Stack spacing={3} borderWidth={1} borderRadius='md' p={4} borderColor='gray.200'>
-    //     <Text><b>Car Model:</b> {car.model}</Text>
-    //     <Text><b>Rental Period:</b> {days} days</Text>
-    //     <Text><b>Total Amount:</b> ${totalAmount}</Text>
-    //   </Stack>
-    //   <Button mt={4} colorScheme='blue'>
-    //     <Link to="/user/available-cars">Back to Cars</Link>
-    //   </Button>
-    // </Box>
-    <div >
-      <Heading size='lg' mb={4}>Order Summary</Heading>
+    <div className="bg-white dark:bg-gray-900">
+      <Heading size='lg' mb={4} color="gray.800" _dark={{ color: "white" }}>Order Summary</Heading>
     <SimpleGrid columns={2} spacing={10} p={4} >
         {
                 <>
-                    <Card>
+                    <Card bg="white" _dark={{ bg: "gray.700" }}>
                         <CardBody>
                             <Image
                                 src={car.image}
@@ -81,40 +70,40 @@ const OrderSummary = () => {
                                 borderRadius='lg'
                             />
                             <Stack mt='6' spacing='3'>
-                                <Heading size='md'> User ID:{userId}</Heading>
-                                <Text>
+                                <Heading size='md' _dark={{ color: "white" }}> User ID:{userId}</Heading>
+                                <Text _dark={{ color: "gray.300" }}>
                                      Model :{car.model}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                      Make :{car.make}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                      Year :{car.year}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                      Description :{car.description}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                      PriceperDay :{car.priceperDay} ₹
                                 </Text>
 
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                   Total Amount :
                                     {totalAmount} ₹
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                   StartDate :
                                   {new Date(startDate).toLocaleDateString()}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                   end Date :
                                   {new Date(endDate).toLocaleDateString()}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                   Total Days :
                                     {days}
                                 </Text>
-                                <Text>
+                                <Text _dark={{ color: "gray.300" }}>
                                   Pickup Location :
                                     {loocation}
                                 </Text>

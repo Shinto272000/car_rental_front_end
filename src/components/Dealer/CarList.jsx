@@ -1,112 +1,62 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Image,
-    Stack,
-    Heading,
-    Text,
-    Divider,
-    ButtonGroup,
-    Button,
-    SimpleGrid
-} from '@chakra-ui/react'
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { axiosInstance } from '../../Config/AxiosConfig';
+import { Link } from 'react-router-dom';
 
 export const CarList = () => {
+  const [cars, setCars] = useState([]);
 
-    const [cars, setCars] = useState([]);
+  useEffect(() => {
+    const getAllCars = async () => {
+      try {
+        const res = await axiosInstance.get("/api/v1/dealer/cars");
+        setCars(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllCars();
+  }, []);
 
-    useEffect(() => {
-        const getAllCarss = async () => {
-            try {
-                const res = await axiosInstance.get(
-                    "/api/v1/dealer/cars",
-                );
-                const data = await res.data;
-                console.log(data);
-                setCars(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getAllCarss();
-    }, []);
-    const navigate = useNavigate()
-    // const handleEdit = (carId) => {
-    //     navigate(`/admin/cars/${carId}`); // Navigate to edit page with car ID
-    // };
+  const handleDelete = async (carId) => {
+    try {
+      const res = await axiosInstance.delete(`/api/v1/dealer/cars/${carId}`);
+      if (res.data === "deleted") {
+        setCars(cars.filter(car => car._id !== carId));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-
-    return (
-        <div>
-            <SimpleGrid columns={3} spacing={10} p={4}>
-                {
-                    cars.map((car, index) => (
-                        <>
-                            <Card key={index} maxW='sm'>
-                                <CardBody>
-                                    <Image
-                                        src={car.image}
-                                        alt='Green double couch with wooden legs'
-                                        borderRadius='lg'
-                                    />
-                                    <Stack mt='6' spacing='3'>
-                                        <Heading size='md'>{car.model}</Heading>
-                                        <Text>
-                                            {car.description}
-                                        </Text>
-                                        <Text color='blue.600' fontSize='2xl'>
-                                            {car.priceperDay}
-                                        </Text>
-                                    </Stack>
-                                </CardBody>
-                                <Divider />
-                                <CardFooter>
-                                    <ButtonGroup spacing='2'>
-                                        <button
-                                        //  onClick={() => handleEdit(car._id)}
-                                         >
-                                            <Link to={`/admin/cars/edit/${car._id}`}>Edit</Link>
-                                            
-                                        </button>
-
-                                        <button
-                                            onClick={async () => {
-                                                const res = await axiosInstance.delete(
-                                                    `/api/v1/dealer/cars/${car._id}`, 
-                                                );
-                                                const data = await res.data;
-                                                console.log(data);
-                                                if (data === "deleted") {
-                                                    window.location.reload();
-                                                }
-                                            }}
-                                            className="rounded-md bg-red-500 px-2 py-1 text-white"
-                                        >
-                                            delete
-                                        </button>
-
-                                    </ButtonGroup>
-                                </CardFooter>
-                            </Card>
-
-
-                        </>
-                    ))
-
-
-                }
-            </SimpleGrid >
+  return (
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-8">Car List</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cars.map((car) => (
+            <div key={car._id} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+              <img src={car.image} alt={car.model} className="w-full h-56 object-cover" />
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800">{car.make} {car.model}</h2>
+                <p className="text-gray-600 mt-2">{car.year}</p>
+                <p className="text-gray-700 mt-4 h-24 overflow-y-auto">{car.description}</p>
+                <div className="mt-4 text-2xl font-bold text-blue-600">${car.priceperDay}/day</div>
+                <div className="mt-6 flex justify-between items-center">
+                  <Link to={`/admin/cars/edit/${car._id}`} className="text-white bg-blue-600 hover:bg-blue-700 rounded-md px-4 py-2 font-semibold transition-colors duration-300">
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(car._id)}
+                    className="text-white bg-red-600 hover:bg-red-700 rounded-md px-4 py-2 font-semibold transition-colors duration-300"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        
-    )
-}
-
-
-
+      </div>
+    </div>
+  );
+};

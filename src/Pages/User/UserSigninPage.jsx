@@ -1,12 +1,10 @@
-import React from 'react'
-import Signin from '../../components/User/UserSignin'
+import React from 'react';
+import Signin from '../../components/User/UserSignin';
 
 const SigninPage = () => {
   return (
-    <div className='flex justify-center h-screen items-center'>
-        <Signin/>
-    </div>
-  )
-}
+    <Signin />
+  );
+};
 
-export default SigninPage
+export default SigninPage;

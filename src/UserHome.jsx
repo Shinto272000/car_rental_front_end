@@ -1,26 +1,33 @@
 import { Link } from "react-router-dom";
 
 function UserHome() {
-
-    return (
-    <div className="relative h-screen bg-cover bg-center" style={{ backgroundImage: `url('https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mikebirdy-170811.jpg&fm=jpg')` }}>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Car Rentals</h1>
-        <p className="text-lg md:text-2xl mb-8">Find the perfect car for your next adventure.</p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg text-lg">
-            <Link to="/user/available-cars"> 
-            Browse Cars   
+  return (
+    <div className="bg-white dark:bg-gray-900">
+      <div className="relative h-96">
+        <img className="w-full h-full object-cover" src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mikebirdy-170811.jpg&fm=jpg" alt="Car" />
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-4">Welcome to Car Rentals</h1>
+          <p className="text-xl md:text-3xl">Find the perfect car for your next adventure.</p>
+        </div>
+      </div>
+      <div className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl dark:text-white">
+            Ready to hit the road?
+          </h2>
+          <p className="mt-4 text-lg text-gray-500 dark:text-gray-400">
+            Browse our collection of cars and find the one that suits you best.
+          </p>
+          <div className="mt-8">
+            <Link to="/user/available-cars" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+              Browse Cars
             </Link>
-        </button>
-        {/* <Link to="/user/cars"> */}
-         {/* <input type="submit" value={"browse Car"} className="bg-blue-800 rounded-md"/> */}
-           {/* </Link> */}
+          </div>
+        </div>
       </div>
     </div>
   );
-
-
 }
 
-export default UserHome
+export default UserHome;

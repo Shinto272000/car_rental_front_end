@@ -36,7 +36,7 @@ import OrderSummary from './components/User/OrderSummery.jsx';
 import UserOrders from './components/User/UserOrders.jsx';
 import UserReview from './components/User/UserReview.jsx';
 import FrontendUserReview from './components/User/FrontendUserReview.jsx';
-import AdminDashbord from './components/Dealer/AdminDashbord.jsx';
+import AdminDashboard from './components/Dealer/AdminDashboard.jsx';
 import DealersList from './components/Dealer/DealersList.jsx';
 import AdminSigninPage from './Pages/Dealer/AdminSigninPage.jsx';
 import AllOrderss from './components/Dealer/GetallOrder.jsx';
@@ -190,7 +190,7 @@ const router = createBrowserRouter([
     },
     {
       path: "/admin/dashbord",
-        element: <AdminDashbord/>,
+        element: <AdminDashboard/>,
     },
     {
       path: "/admin/dealersList",
